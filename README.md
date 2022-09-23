@@ -7,5 +7,5 @@ For ETHOnline 2022 hackathon.
 ## Run This Project
 
 1. `npm install` to install the dependencies
-2. `pnpm run dev` to start the server
+2. `npm run dev` to start the server
 
