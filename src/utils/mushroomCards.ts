@@ -13,6 +13,7 @@ interface Profile {
   userId: number;
   address: string;
   level: number;
+  popularityLevel: number;
   updatedAt: string;
 }
 
@@ -122,7 +123,7 @@ class MushroomCards {
 
     console.log("postUserInfoToCeramic")
     console.log("postUserInfoToCeramic", cardInfo)
-    const result = await postUserInfoToCeramic(cardInfo["userId"], cardInfo["guildId"], cardInfo["level"]);
+    const result = await postUserInfoToCeramic(cardInfo["userId"], cardInfo["guildId"], cardInfo["level"], cardInfo["popularityLevel"]);
     console.log(result)
     console.log("postUserInfoToCeramic end")
     const streamId = result["stream_id"] as string
@@ -130,6 +131,7 @@ class MushroomCards {
       "guildId": result["content"]["profile"]["guildId"] as string,
       "userId": result["content"]["profile"]["userId"] as string,
       "level": result["content"]["profile"]["level"] as string,
+      "popularityLevel": result["content"]["profile"]["popularityLevel"] as string,
       "address": formatDid(result["content"]["profile"]["address"] as string),
       "updatedAt": result["content"]["profile"]["updatedAt"] as string,
       "signature": formatSig(result["content"]["signature"] as string),

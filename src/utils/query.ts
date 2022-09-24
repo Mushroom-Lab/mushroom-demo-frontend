@@ -33,8 +33,8 @@ export const requestUserInfoFromBot = async (userId: string, guildId: string) =>
   return result
 }
 
-export const postUserInfoToCeramic = async (userId: string, guildId: string, level: string) => {
-  const data = { user_id: userId, guild_id: guildId, level }
+export const postUserInfoToCeramic = async (userId: string, guildId: string, level: string, popularityLevel: string) => {
+  const data = { user_id: userId, guild_id: guildId, level, popularityLevel }
   console.log("data", data)
   const response = await fetch(
     `http://${process.env.ENDPOINT}:3300/ceramic/write_profile`,

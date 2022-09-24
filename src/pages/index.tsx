@@ -57,6 +57,7 @@ const Home: NextPage = () => {
       "guildId": guildId,
       "userId": userId,
       "level": result["level"],
+      "popularityLevel": result["popularityLevel"],
       "xp": result["xp"]
     };
     setDiscordProfile(card_info)
