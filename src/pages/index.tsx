@@ -29,8 +29,8 @@ const Home: NextPage = () => {
       console.log("statusRole start");
       const statusRole = await postAssignRole(userId, guildId)
       console.log("statusRole", statusRole);
-      const statusDM = await postDMToUser(`You have already linked Discord with your wallet. Check your onchain profile: https://cerscan.com/testnet-clay/stream/${result["streamId"]}`, userId)
-      console.log("postDMToUser", statusDM);
+      // const statusDM = await postDMToUser(`You have already linked Discord with your wallet. Check your onchain profile: https://cerscan.com/testnet-clay/stream/${result["streamId"]}`, userId)
+      // console.log("postDMToUser", statusDM);
       console.log(process.env.TEST)
       setStreamID(result["streamId"]);
       setOnchainProfile(result["onchainProfile"]);
