@@ -37,7 +37,7 @@ export const postUserInfoToCeramic = async (userId: string, guildId: string, lev
   const data = { user_id: userId, guild_id: guildId, level, popularity_level }
   console.log("data", data)
   const response = await fetch(
-    `http://connect.mushroom.social:3300/ceramic/write_profile`,
+    `https://connect.mushroom.social:3300/ceramic/write_profile`,
     {
       method: "POST",
       body: JSON.stringify(data),
@@ -55,7 +55,7 @@ export const postUserInfoToCeramic = async (userId: string, guildId: string, lev
 export const postSessionToDB = async (session: string, userId: string, guildId: string, address: string) => {
   const data = { session, user_id: userId, guild_id: guildId, address }
   const response = await fetch(
-    `http://connect.mushroom.social:3300/ceramic/save_session`,
+    `https://connect.mushroom.social:3300/ceramic/save_session`,
     {
       method: "POST",
       body: JSON.stringify(data),
@@ -72,7 +72,7 @@ export const postSessionToDB = async (session: string, userId: string, guildId: 
 export const postDMToUser = async (content: string, userId: string) => {
   const data = { content }
   const response = await fetch(
-    `http://connect.mushroom.social:3334/dm/${userId}`,
+    `https://connect.mushroom.social:3334/dm/${userId}`,
     {
       method: "POST",
       body: JSON.stringify(data),
@@ -88,7 +88,7 @@ export const postDMToUser = async (content: string, userId: string) => {
 export const postAssignRole = async (userId: string, guildId: string) => {
   const data = { "user_id": userId, "guild_id": guildId, "role_id": "1022221111607439480" }
   const response = await fetch(
-    `http://connect.mushroom.social:3334/roleassign`,
+    `https://connect.mushroom.social:3334/roleassign`,
     {
       method: "POST",
       body: JSON.stringify(data),
