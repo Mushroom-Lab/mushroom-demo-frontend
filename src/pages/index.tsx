@@ -92,12 +92,12 @@ const Home: NextPage = () => {
               loading={loading}
               className={styles.loadingButton}
             >
-              {"CREATE ONCHAIN PROFILE"}
+              {"CREATE ONCHAIN PROFILE TO GET A ROLE"}
             </LoadingButton>
           </div>
           {
             streamID ? 
-            <div className={styles.cerLink}>Check it on Ceramic:{" "}
+            <div className={styles.cerLink}>Your onchain profile is successfully created! Check it on Ceramic:{" "}
             <a
               className={styles.link}
               href={"https://cerscan.com/mainnet/stream/"+streamID}
@@ -121,7 +121,7 @@ const Home: NextPage = () => {
                 Object.entries(discordProfile).map(([key, value]) => {
                   return (
                     <p className={styles.discordProfile}>
-                    {key}: {value}
+                      <div className={styles.discordProfileKey}>{key}</div>: {value}
                     </p>
                   );
                 })

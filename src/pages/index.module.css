@@ -96,6 +96,10 @@
   line-height: 10px;
 }
 
+.discordProfileKey {
+  font-weight: bold;
+}
+
 .followList {
   overflow: auto;
   width: 350px;
