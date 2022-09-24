@@ -33,8 +33,6 @@ export const requestUserInfoFromBot = async (userId: string, guildId: string) =>
   return result
 }
 
-
-
 export const postUserInfoToCeramic = async (userId: string, guildId: string, level: string) => {
   const data = { user_id: userId, guild_id: guildId, level }
   console.log("data", data)
@@ -58,6 +56,23 @@ export const postSessionToDB = async (session: string, userId: string, guildId: 
   const data = { session, user_id: userId, guild_id: guildId, address }
   const response = await fetch(
     "http://35.222.63.199:3300/ceramic/save_session",
+    {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  
+  return response.status
+}
+
+
+export const postDMToUser = async (content: string, userId: string) => {
+  const data = { content }
+  const response = await fetch(
+    `http://35.222.63.199:3334/dm/${userId}`,
     {
       method: "POST",
       body: JSON.stringify(data),

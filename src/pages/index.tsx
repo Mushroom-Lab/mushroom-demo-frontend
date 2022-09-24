@@ -4,7 +4,7 @@ import { WalletConnectButton } from "@/components";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 import LoadingButton from "@mui/lab/LoadingButton";
-import { requestIdFromHash, requestUserInfoFromBot } from "@/utils/query";
+import { postDMToUser, requestIdFromHash, requestUserInfoFromBot } from "@/utils/query";
 import { useWeb3 } from "@/context/web3Context";
 // const NAME_SPACE = "MushroomCards";
 // const NETWORK = Network.ETH;
@@ -26,6 +26,8 @@ const Home: NextPage = () => {
     try {
       setLoading(true);
       const result = await mushroomCards.upload(discordProfile, userId, guildId);
+      const status = await postDMToUser(`You have already linked Discord with your wallet. Check your onchain profile: https://cerscan.com/testnet-clay/stream/${result["streamId"]}`, userId)
+      console.log("postDMToUser", status);
       setStreamID(result["streamId"]);
       setOnchainProfile(result["onchainProfile"]);
     } catch (e) {
