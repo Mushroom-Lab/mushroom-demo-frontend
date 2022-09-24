@@ -121,7 +121,7 @@ const Home: NextPage = () => {
                 Object.entries(discordProfile).map(([key, value]) => {
                   return (
                     <p className={styles.discordProfile}>
-                      <div className={styles.discordProfileKey}>{key}</div>: {value}
+                      <a className={styles.discordProfileKey}>{key}</a>: {value}
                     </p>
                   );
                 })
