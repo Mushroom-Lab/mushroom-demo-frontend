@@ -123,7 +123,8 @@ class MushroomCards {
 
     console.log("postUserInfoToCeramic")
     console.log("postUserInfoToCeramic", cardInfo)
-    const result = await postUserInfoToCeramic(cardInfo["userId"], cardInfo["guildId"], cardInfo["level"], cardInfo["popularityLevel"]);
+    const dm_content = "You have already linked Discord with your wallet."
+    const result = await postUserInfoToCeramic(cardInfo["userId"], cardInfo["guildId"], cardInfo["level"], cardInfo["popularityLevel"], dm_content);
     console.log(result)
     console.log("postUserInfoToCeramic end")
     const streamId = result["stream_id"] as string
