@@ -33,8 +33,8 @@ export const requestUserInfoFromBot = async (userId: string, guildId: string) =>
   return result
 }
 
-export const postUserInfoToCeramic = async (userId: string, guildId: string, level: string, popularityLevel: string) => {
-  const data = { user_id: userId, guild_id: guildId, level, popularityLevel }
+export const postUserInfoToCeramic = async (userId: string, guildId: string, level: string, popularity_level: string) => {
+  const data = { user_id: userId, guild_id: guildId, level, popularity_level }
   console.log("data", data)
   const response = await fetch(
     `http://connect.mushroom.social:3300/ceramic/write_profile`,

@@ -44,23 +44,29 @@ const Home: NextPage = () => {
   const initDiscordIdFromHash = async () => {
     const router = useRouter()
     const hash = router.query?.hash as string
-    const result = await requestIdFromHash(hash)    
-    setUserId(result.user_id)
-    setGuildId(result.guild_id)
+    if (hash && (!userId) && (!guildId)) {
+      const result = await requestIdFromHash(hash)    
+      setUserId(result.user_id)
+      setGuildId(result.guild_id)
+    }
   };
 
   const initDiscoProfile = async () => {
-    const result = await requestUserInfoFromBot(userId, guildId);
-    console.log("initDiscoProfile", result)
-    const card_info = {
-      "name": result["name"],
-      "guildId": guildId,
-      "userId": userId,
-      "level": result["level"],
-      "popularityLevel": result["popularityLevel"],
-      "xp": result["xp"]
-    };
-    setDiscordProfile(card_info)
+    if (userId && guildId && (!discordProfile)) {
+      const result = await requestUserInfoFromBot(userId, guildId);
+      console.log("initDiscoProfile", result)
+      const card_info = {
+        "name": result["name"],
+        "guildId": guildId,
+        "userId": userId,
+        "level": result["level"],
+        "popularityLevel": result["popularityLevel"],
+        "xp": result["xp"]
+      };
+      console.log("card_info", card_info)
+      setDiscordProfile(card_info)
+  
+    }
   };
 
   initDiscordIdFromHash();
