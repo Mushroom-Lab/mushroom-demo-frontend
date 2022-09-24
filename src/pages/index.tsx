@@ -100,7 +100,7 @@ const Home: NextPage = () => {
             <div className={styles.cerLink}>Your onchain profile is successfully created! Check it on Ceramic:{" "}
             <a
               className={styles.link}
-              href={"https://cerscan.com/mainnet/stream/"+streamID}
+              href={"https://cerscan.com/testnet-clay/stream/"+streamID}
               target="_blank"
             >
               {streamID}
@@ -137,7 +137,7 @@ const Home: NextPage = () => {
                 Object.entries(onchainProfile).map(([key, value]) => {
                   return (
                     <p className={styles.discordProfile}>
-                    {key}: {value}
+                    <a className={styles.discordProfileKey}>{key}</a>: {value}
                     </p>
                   );
                 })
