@@ -88,13 +88,12 @@ const Home: NextPage = () => {
       </div>
       <div className={styles.discription}>
         <p>
-          This is a MUSHROOM CONNECT demo app.
+          This is a MUSHROOM CERMINI demo app.
         </p>
         <p>
-          This app displays the current user&apos;s discord XP Profile. It
-          allows the user to put it onchain.
+          This app helps you sync your Discord reputation onchain. Try it yourself!
         </p>
-        <p>Try it yourself!</p>
+        <p className={styles.fontBold}>First please join <a className={styles.link} href={"https://discord.gg/sEJzUPHgVX"} target="_blank" > our discord </a> to connect your DID!</p>
       </div>
       <WalletConnectButton />
       {address && (

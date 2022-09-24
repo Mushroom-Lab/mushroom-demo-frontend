@@ -96,6 +96,12 @@
   line-height: 10px;
 }
 
+.fontBold {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
 .discordProfileKey {
   font-weight: bold;
 }
