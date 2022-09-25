@@ -33,6 +33,25 @@ export const requestUserInfoFromBot = async (userId: string, guildId: string) =>
   return result
 }
 
+export const requestUserInfoFromCeramic = async (userId: string, guildId: string) => {
+
+  console.log("userId", userId)
+  console.log("guildId", guildId)
+
+  console.log(`https://connect.mushroom.social:3300/ceramic/get_profile?user_id=${userId}&guild_id=${guildId}`)
+
+  const response = await fetch(
+    `https://connect.mushroom.social:3300/ceramic/get_profile?user_id=${userId}&guild_id=${guildId}`,
+    { method: "GET" }
+  );
+  const result = await response.json();
+  
+  console.log("========== status", response.status)
+  console.log("==========", result)
+
+  return result
+}
+
 export const postUserInfoToCeramic = async (userId: string, guildId: string, level: string, popularity_level: string, dm_content: string) => {
   const data = { user_id: userId, guild_id: guildId, level, popularity_level, dm_content }
   console.log("data", data)

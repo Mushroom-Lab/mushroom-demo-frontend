@@ -4,8 +4,9 @@ import { WalletConnectButton } from "@/components";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router'
 import LoadingButton from "@mui/lab/LoadingButton";
-import { postAssignRole, postDMToUser, requestIdFromHash, requestUserInfoFromBot } from "@/utils/query";
+import { postAssignRole, postDMToUser, requestIdFromHash, requestUserInfoFromBot, requestUserInfoFromCeramic } from "@/utils/query";
 import { useWeb3 } from "@/context/web3Context";
+import { formatDid } from "@/utils/helper";
 // const NAME_SPACE = "MushroomCards";
 // const NETWORK = Network.ETH;
 
@@ -65,6 +66,19 @@ const Home: NextPage = () => {
       };
       console.log("card_info", card_info)
       setDiscordProfile(card_info)
+
+      const result_onchian = await requestUserInfoFromCeramic(userId, guildId);
+      console.log("initOnchianProfile", result_onchian)
+      const card_info_inchain = {
+        "guildId": result_onchian["profile"]["guildId"],
+        "userId": result_onchian["profile"]["userId"],
+        "level": result_onchian["profile"]["level"],
+        "popularityLevel": result_onchian["profile"]["popularityLevel"],
+        "address": formatDid(result_onchian["profile"]["address"]),
+        "updatedAt": result_onchian["profile"]["updatedAt"],
+      };
+      console.log("card_info_inchain", card_info_inchain)
+      setOnchainProfile(card_info_inchain)
   
     }
   };
