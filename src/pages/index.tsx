@@ -69,17 +69,18 @@ const Home: NextPage = () => {
 
       const result_onchian = await requestUserInfoFromCeramic(userId, guildId);
       console.log("initOnchianProfile", result_onchian)
-      const card_info_inchain = {
-        "guildId": result_onchian["profile"]["guildId"],
-        "userId": result_onchian["profile"]["userId"],
-        "level": result_onchian["profile"]["level"],
-        "popularityLevel": result_onchian["profile"]["popularityLevel"],
-        "address": formatDid(result_onchian["profile"]["address"]),
-        "updatedAt": result_onchian["profile"]["updatedAt"],
-      };
-      console.log("card_info_inchain", card_info_inchain)
-      setOnchainProfile(card_info_inchain)
-  
+      if (result_onchian["status"] == 0) {
+        const card_info_inchain = {
+          "guildId": result_onchian["profile"]["guildId"],
+          "userId": result_onchian["profile"]["userId"],
+          "level": result_onchian["profile"]["level"],
+          "popularityLevel": result_onchian["profile"]["popularityLevel"],
+          "address": formatDid(result_onchian["profile"]["address"]),
+          "updatedAt": result_onchian["profile"]["updatedAt"],
+        };
+        console.log("card_info_inchain", card_info_inchain)
+        setOnchainProfile(card_info_inchain)
+      }  
     }
   };
 
