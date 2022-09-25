@@ -103,7 +103,7 @@ const Home: NextPage = () => {
       </div>
       <div className={styles.discription}>
         <p>
-          This is a MUSHROOM CERMINI demo app.
+          This is a MUSHROOM CREMINI demo app.
         </p>
         <p>
           This app helps you sync your Discord reputation onchain. Try it yourself!
